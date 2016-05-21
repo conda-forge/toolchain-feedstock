@@ -7,6 +7,7 @@ then
     export CXX=clang++
     export MACOSX_VERSION_MIN="10.7"
     export MACOSX_DEPLOYMENT_TARGET="${MACOSX_VERSION_MIN}"
+    export CFLAGS="${CFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
     export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
     export CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
     export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
@@ -17,6 +18,7 @@ then
     # for Linux
     export CC=gcc
     export CXX=g++
+    export CFLAGS="${CFLAGS}"
     # Boost wants to enable `float128` support on Linux by default.
     # However, we don't install `libquadmath` so it will fail to find
     # the needed headers and fail to compile things. Adding this flag

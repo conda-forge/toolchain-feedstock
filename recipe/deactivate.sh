@@ -7,6 +7,7 @@ then
     unset CXX
     unset MACOSX_VERSION_MIN
     unset MACOSX_DEPLOYMENT_TARGET
+    unset CFLAGS
     unset CXXFLAGS
     unset LDFLAGS
     unset LINKFLAGS
@@ -15,6 +16,7 @@ then
     # for Linux
     unset CC
     unset CXX
+    unset CFLAGS
     unset CXXFLAGS
     unset LDFLAGS
     unset LINKFLAGS
