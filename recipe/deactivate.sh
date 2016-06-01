@@ -21,6 +21,7 @@ then
     unset CXXFLAGS
     unset LDFLAGS
     unset LINKFLAGS
+    unset MAKEFLAGS
 else
     echo "This system is unsupported by our toolchain."
     exit 1

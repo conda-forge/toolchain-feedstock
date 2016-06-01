@@ -33,6 +33,10 @@ then
     export CXXFLAGS="${CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
     export LDFLAGS="${LDFLAGS}"
     export LINKFLAGS="${LDFLAGS}"
+
+    # 2 cores are available on CircleCI workers: https://discuss.circleci.com/t/what-runs-on-the-node-container-by-default/1443
+    # MAKEFLAGS is passed through conda build: https://github.com/conda/conda-build/pull/917
+    export MAKEFLAGS="-j2 ${MAKEFLAGS}"
 else
     echo "This system is unsupported by the toolchain."
     exit 1
