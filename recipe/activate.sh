@@ -38,5 +38,8 @@ else
     exit 1
 fi
 
+export CFLAGS="${CFLAGS} -I${PREFIX}/include"
+export CXXFLAGS="${CXXFLAGS} -I${PREFIX}/include"
+export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"
 export CFLAGS="${CFLAGS} -m${ARCH}"
 export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
