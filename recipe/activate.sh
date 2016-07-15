@@ -13,7 +13,7 @@ then
     export CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
     export LDFLAGS="${LDFLAGS} -headerpad_max_install_names"
     export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
-    export LDFLAGS="${LDFLAGS} -lc++"
+    export LDFLAGS="${LDFLAGS}"
     export LINKFLAGS="${LDFLAGS}"
 elif [ "$(uname)" == "Linux" ]
 then
