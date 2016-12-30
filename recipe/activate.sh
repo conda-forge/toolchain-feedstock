@@ -14,7 +14,7 @@ then
     export LDFLAGS="${LDFLAGS} -headerpad_max_install_names"
     export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
     export LDFLAGS="${LDFLAGS} -lc++"
-    export LDFLAGS="${LDFLAGS} -Wl,-rpath,${PREFIX}/lib" 
+    export LDFLAGS="${LDFLAGS} -Wl,-rpath=$PREFIX/lib" 
     export LINKFLAGS="${LDFLAGS}"
 elif [ "$(uname)" == "Linux" ]
 then
@@ -33,6 +33,7 @@ then
     #
     export CXXFLAGS="${CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
     export LDFLAGS="${LDFLAGS}"
+    export LDFLAGS="${LDFLAGS} -Wl,-rpath=$PREFIX/lib" 
     export LINKFLAGS="${LDFLAGS}"
 else
     echo "This system is unsupported by the toolchain."
