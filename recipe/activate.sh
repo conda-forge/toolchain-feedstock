@@ -5,22 +5,20 @@ then
     # for Mac OSX
     export CC=clang
     export CXX=clang++
-    export MACOSX_VERSION_MIN="10.9"
-    export MACOSX_DEPLOYMENT_TARGET="${MACOSX_VERSION_MIN}"
-    export CMAKE_OSX_DEPLOYMENT_TARGET="${MACOSX_VERSION_MIN}"
-    export CFLAGS="${CFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
-    export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
-    export CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
-    export LDFLAGS="${LDFLAGS} -headerpad_max_install_names"
-    export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
-    export LDFLAGS="${LDFLAGS} -lc++"
-    export LINKFLAGS="${LDFLAGS}"
+    export CONDA_FORGE_MACOSX_VERSION_MIN="10.9"
+    export MACOSX_DEPLOYMENT_TARGET="${CONDA_FORGE_MACOSX_VERSION_MIN}"
+    export CMAKE_OSX_DEPLOYMENT_TARGET="${CONDA_FORGE_MACOSX_VERSION_MIN}"
+    export CONDA_FORGE_CFLAGS="${CONDA_FORGE_CFLAGS} -mmacosx-version-min=${CONDA_FORGE_MACOSX_VERSION_MIN}"
+    export CONDA_FORGE_CXXFLAGS="${CONDA_FORGE_CXXFLAGS} -mmacosx-version-min=${CONDA_FORGE_MACOSX_VERSION_MIN}"
+    export CONDA_FORGE_CXXFLAGS="${CONDA_FORGE_CXXFLAGS} -stdlib=libc++"
+    export CONDA_FORGE_LDFLAGS="${CONDA_FORGE_LDFLAGS} -headerpad_max_install_names"
+    export CONDA_FORGE_LDFLAGS="${CONDA_FORGE_LDFLAGS} -mmacosx-version-min=${CONDA_FORGE_MACOSX_VERSION_MIN}"
+    export CONDA_FORGE_LDFLAGS="${CONDA_FORGE_LDFLAGS} -lc++"
 elif [ "$(uname)" == "Linux" ]
 then
     # for Linux
     export CC=gcc
     export CXX=g++
-    export CFLAGS="${CFLAGS}"
     # Boost wants to enable `float128` support on Linux by default.
     # However, we don't install `libquadmath` so it will fail to find
     # the needed headers and fail to compile things. Adding this flag
@@ -30,13 +28,24 @@ then
     #
     # https://svn.boost.org/trac/boost/ticket/9240
     #
-    export CXXFLAGS="${CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
-    export LDFLAGS="${LDFLAGS}"
-    export LINKFLAGS="${LDFLAGS}"
+    export CONDA_FORGE_CXXFLAGS="${CONDA_FORGE_CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
 else
     echo "This system is unsupported by the toolchain."
     exit 1
 fi
 
-export CFLAGS="${CFLAGS} -m${ARCH}"
-export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
+# These are set by conda-build. Move them to CONDA_FORGE_* and unset
+export CONDA_FORGE_CFLAGS="${CONDA_FORGE_CFLAGS} ${CFLAGS}"
+export CONDA_FORGE_CXXFLAGS="${CONDA_FORGE_CXXFLAGS} ${CXXFLAGS}"
+export CONDA_FORGE_LDFLAGS="${CONDA_FORGE_LDFLAGS} ${LDFLAGS}"
+unset CFLAGS
+unset CXXFLAGS
+unset LDFLAGS
+
+export CONDA_FORGE_CFLAGS="${CONDA_FORGE_CFLAGS} -m${ARCH}"
+export CONDA_FORGE_CXXFLAGS="${CONDA_FORGE_CXXFLAGS} -m${ARCH}"
+export CONDA_FORGE_CPPFLAGS="${CONDA_FORGE_CPPFLAGS} -I${PREFIX}/include"
+export CONDA_FORGE_LDFLAGS="${CONDA_FORGE_LDFLAGS} -L${PREFIX}/lib"
+
+export _OLD_PATH=${PATH}
+export PATH="${PREFIX}/bin/conda_forge:${PATH}"
