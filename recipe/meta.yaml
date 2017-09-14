@@ -1,6 +1,6 @@
 package:
   name: toolchain
-  version: 2.0.1
+  version: 2.1.1
 
 build:
   number: 0
@@ -20,7 +20,9 @@ about:
 
 extra:
   recipe-maintainers:
+    - isuruf
     - jakirkham
     - msarahan
     - patricksnape
     - pelson
+    - scopatz
