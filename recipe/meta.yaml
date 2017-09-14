@@ -10,7 +10,7 @@ test:
     # Verify the scripts are in-place.
     {% for state in ["activate", "deactivate"] %}
     - test -f "${PREFIX}/etc/conda/{{ state }}.d/toolchain_{{ state }}.sh"                        # [unix]
-    - if not exist %LIBRARY_PREFIX%\\etc\\conda\\{{ state }}.d\\toolchain_{{ state }}.bat exit 1  # [win]
+    - if not exist %PREFIX%\\etc\\conda\\{{ state }}.d\\toolchain_{{ state }}.bat exit 1  # [win]
     {% endfor %}
 
 about:
