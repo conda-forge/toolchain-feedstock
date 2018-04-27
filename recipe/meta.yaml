@@ -16,6 +16,7 @@ outputs:
         {% for state in ["activate", "deactivate"] %}
         - test -f "${PREFIX}/etc/conda/{{ state }}.d/toolchain_{{ state }}.sh"                        # [unix]
         {% endfor %}
+        - echo "I'm on windows, and there's nothing to do here."                                      # [win]
 {% if unix %}
         - source ${PREFIX}/etc/conda/activate.d/toolchain_activate.sh
         - if [ -z ${CC+x} ]; then echo "CC is unset after activation" && exit 1; else echo "CC is set to '$CC'"; fi
