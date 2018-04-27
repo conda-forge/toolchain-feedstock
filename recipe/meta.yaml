@@ -13,6 +13,37 @@ test:
     - if not exist %PREFIX%\\etc\\conda\\{{ state }}.d\\toolchain_{{ state }}.bat exit 1  # [win]
     {% endfor %}
 
+outputs:
+  - name: toolchain
+    script: install-toolchain.sh      # [unix]
+    script: install-toolchain.bat     # [win]
+
+  - name: toolchain_c_linux-64                                       # [linux]
+  - name: toolchain_c_osx-64                                         # [osx]
+    requirements:                                                    # [unix]
+      - {{ pin_subpackage('toolchain', exact=True) }}                # [unix]
+    run_exports:                                                     # [linux]
+      strong:                                                        # [linux]
+        - libgcc-ng >=4.9                                            # [linux]
+
+  - name: toolchain_cxx_linux-64                                     # [linux]
+  - name: toolchain_cxx_osx-64                                       # [osx]
+    requirements:                                                    # [unix]
+      - {{ pin_subpackage('toolchain', exact=True) }}                # [unix]
+    run_exports:                                                     # [unix]
+      strong:                                                        # [unix]
+        - libstdcxx-ng >=4.9                                         # [linux]
+        - libcxx >=4.0                                               # [osx]
+
+  - name: toolchain_fort_linux-64                                    # [linux]
+  - name: toolchain_fort_osx-64                                      # [osx]
+    requirements:                                                    # [unix]
+      - {{ pin_subpackage('toolchain', exact=True) }}                # [unix]
+      - gcc                                                          # [osx]
+    run_exports:                                                     # [unix]
+      strong:                                                        # [unix]
+        - libgfortran-ng >=4.9                                       # [unix]
+
 about:
   home: https://github.com/conda-forge/toolchain-feedstock
   license: BSD 3-Clause
