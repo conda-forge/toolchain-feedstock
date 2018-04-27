@@ -14,14 +14,19 @@ Summary: A meta-package to enable the right toolchain.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/toolchain-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/toolchain-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/toolchain-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/toolchain-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/toolchain-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/toolchain-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/toolchain-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/toolchain-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/toolchain-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/toolchain-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/toolchain-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/toolchain-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/toolchain/badges/version.svg)](https://anaconda.org/conda-forge/toolchain)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/toolchain/badges/downloads.svg)](https://anaconda.org/conda-forge/toolchain)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain-green.svg)](https://anaconda.org/conda-forge/toolchain) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain.svg)](https://anaconda.org/conda-forge/toolchain) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain.svg)](https://anaconda.org/conda-forge/toolchain) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain.svg)](https://anaconda.org/conda-forge/toolchain) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_c_linux--64-green.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_c_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_c_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_c_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_cxx_linux--64-green.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_cxx_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_cxx_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_cxx_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_fort_linux--64-green.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_fort_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_fort_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_fort_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) |
 
 Installing toolchain
 ====================
@@ -32,10 +37,10 @@ Installing `toolchain` from the `conda-forge` channel can be achieved by adding 
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `toolchain` can be installed with:
+Once the `conda-forge` channel has been enabled, `toolchain, toolchain_c_linux-64, toolchain_cxx_linux-64, toolchain_fort_linux-64` can be installed with:
 
 ```
-conda install toolchain
+conda install toolchain toolchain_c_linux-64 toolchain_cxx_linux-64 toolchain_fort_linux-64
 ```
 
 It is possible to list all of the versions of `toolchain` available on your platform with:
@@ -66,6 +71,7 @@ To manage the continuous integration and simplify feedstock maintenance
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
