@@ -5,44 +5,46 @@ package:
 build:
   number: 0
 
-test:
-  commands:
-    # Verify the scripts are in-place.
-    {% for state in ["activate", "deactivate"] %}
-    - test -f "${PREFIX}/etc/conda/{{ state }}.d/toolchain_{{ state }}.sh"                        # [unix]
-    - if not exist %PREFIX%\\etc\\conda\\{{ state }}.d\\toolchain_{{ state }}.bat exit 1  # [win]
-    {% endfor %}
-
 outputs:
   - name: toolchain
+    # for windows, this is a placebo package.  The default conda-build activation stuff is all we use.
+    # we just don't want people to have to put selectors on their toolchain dep.
     script: install-toolchain.sh      # [unix]
-    script: install-toolchain.bat     # [win]
+    test:
+      commands:
+        # Verify the scripts are in-place.
+        {% for state in ["activate", "deactivate"] %}
+        - test -f "${PREFIX}/etc/conda/{{ state }}.d/toolchain_{{ state }}.sh"                        # [unix]
+        {% endfor %}
+{% if unix %}
+        - source ${PREFIX}/etc/conda/activate.d/toolchain_activate.sh
+        - if [ -z ${CC+x} ]; then echo "CC is unset after activation" && exit 1; else echo "CC is set to '$CC'"; fi
+        - source ${PREFIX}/etc/conda/deactivate.d/toolchain_deactivate.sh
+        - if [ -z ${CC+x} ]; then echo "CC is unset after deactivation "; else echo "CC is set to '$CC' after deactivation" && exit 1; fi
 
-  - name: toolchain_c_linux-64                                       # [linux]
-  - name: toolchain_c_osx-64                                         # [osx]
-    requirements:                                                    # [unix]
-      - {{ pin_subpackage('toolchain', exact=True) }}                # [unix]
+  - name: toolchain_c_{{ target_platform }}
+    requirements:
+      - {{ pin_subpackage('toolchain', exact=True) }}
     run_exports:                                                     # [linux]
       strong:                                                        # [linux]
         - libgcc-ng >=4.9                                            # [linux]
 
-  - name: toolchain_cxx_linux-64                                     # [linux]
-  - name: toolchain_cxx_osx-64                                       # [osx]
-    requirements:                                                    # [unix]
-      - {{ pin_subpackage('toolchain', exact=True) }}                # [unix]
-    run_exports:                                                     # [unix]
-      strong:                                                        # [unix]
+  - name: toolchain_cxx_{{ target_platform }}
+    requirements:
+      - {{ pin_subpackage('toolchain', exact=True) }}
+    run_exports:
+      strong:
         - libstdcxx-ng >=4.9                                         # [linux]
         - libcxx >=4.0                                               # [osx]
 
-  - name: toolchain_fort_linux-64                                    # [linux]
-  - name: toolchain_fort_osx-64                                      # [osx]
-    requirements:                                                    # [unix]
-      - {{ pin_subpackage('toolchain', exact=True) }}                # [unix]
+  - name: toolchain_fort_{{ target_platform }}
+    requirements:
+      - {{ pin_subpackage('toolchain', exact=True) }}
       - gcc                                                          # [osx]
-    run_exports:                                                     # [unix]
-      strong:                                                        # [unix]
+    run_exports:
+      strong:
         - libgfortran-ng >=4.9                                       # [unix]
+{% endif %}
 
 about:
   home: https://github.com/conda-forge/toolchain-feedstock
