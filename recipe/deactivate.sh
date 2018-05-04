@@ -12,6 +12,7 @@ then
     unset CXXFLAGS
     unset LDFLAGS
     unset LINKFLAGS
+    unset CMAKE_PREFIX_PATH
 elif [ "$(uname)" == "Linux" ]
 then
     # for Linux
@@ -21,6 +22,7 @@ then
     unset CXXFLAGS
     unset LDFLAGS
     unset LINKFLAGS
+    unset CMAKE_PREFIX_PATH
 else
     echo "This system is unsupported by our toolchain."
     exit 1
