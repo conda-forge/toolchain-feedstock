@@ -43,7 +43,8 @@ outputs:
       - gcc                                                          # [osx]
     run_exports:
       strong:
-        - libgfortran-ng >=4.9                                       # [unix]
+        - libgfortran-ng >=4.9                                       # [linux]
+        - libgfortran-ng >=3.0                                       # [osx]
 {% endif %}
 
 about:
