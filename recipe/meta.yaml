@@ -46,27 +46,12 @@ outputs:
         - libgfortran-ng >=4.9                                       # [linux]
         - libgfortran-ng >=3.0                                       # [osx]
 {% else %}
-  - name: toolchain_m2w64_c_{{ target_platform }}
+  - name: m2w64-toolchain_{{ target_platform }}
     requirements:
       - m2w64-toolchain
     run_exports:
       strong:
-        - m2w64-gcc-libs-core
-
-  - name: toolchain_m2w64_cxx_{{ target_platform }}
-    requirements:
-      - m2w64-toolchain
-    run_exports:
-      strong:
-        - m2w64-gcc-libs-core
-
-  - name: toolchain_m2w64_fort_{{ target_platform }}
-    requirements:
-      - m2w64-toolchain
-    run_exports:
-      strong:
-        - m2w64-gcc-libs-core
-        - m2w64-gcc-libgfortran
+        - m2w64-gcc-libs
 {% endif %}
 
 about:
