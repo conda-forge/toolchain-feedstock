@@ -33,8 +33,8 @@ outputs:
   - name: toolchain_cxx_{{ target_platform }}
     requirements:
       - {{ pin_subpackage('toolchain', exact=True) }}
-    run_exports:
-      strong:
+    run_exports:                                                     # [linux]
+      strong:                                                        # [linux]
         - libstdcxx-ng >=4.9                                         # [linux]
 
   - name: toolchain_fort_{{ target_platform }}
