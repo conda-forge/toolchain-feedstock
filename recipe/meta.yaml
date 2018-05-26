@@ -1,6 +1,6 @@
 package:
   name: toolchain
-  version: 2.1.3
+  version: 2.1.4
 
 build:
   number: 0
@@ -33,8 +33,8 @@ outputs:
   - name: toolchain_cxx_{{ target_platform }}
     requirements:
       - {{ pin_subpackage('toolchain', exact=True) }}
-    run_exports:
-      strong:
+    run_exports:                                                     # [linux]
+      strong:                                                        # [linux]
         - libstdcxx-ng >=4.9                                         # [linux]
 
   - name: toolchain_fort_{{ target_platform }}
@@ -45,6 +45,13 @@ outputs:
       strong:
         - libgfortran-ng >=4.9                                       # [linux]
         - libgfortran-ng >=3.0                                       # [osx]
+{% else %}
+  - name: m2w64-toolchain_{{ target_platform }}
+    requirements:
+      - m2w64-toolchain
+    run_exports:
+      strong:
+        - m2w64-gcc-libs
 {% endif %}
 
 about:
