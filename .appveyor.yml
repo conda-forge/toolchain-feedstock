@@ -9,7 +9,7 @@ environment:
     secure: ipv/06DzgA7pzz2CIAtbPxZSsphDtF+JFyoWRnXkn3O8j7oRe3rzqj3LOoq2DZp4
 
   matrix:
-    - CONFIG: win_
+    - CONFIG: win_target_platformwin-64
       CONDA_INSTALL_LOCN: C:\Miniconda36-x64
 
 
