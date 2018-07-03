@@ -25,3 +25,5 @@ else
     echo "This system is unsupported by our toolchain."
     exit 1
 fi
+
+unset PKG_CONFIG_PATH
