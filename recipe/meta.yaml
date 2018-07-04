@@ -1,6 +1,6 @@
 package:
   name: toolchain
-  version: 2.1.5
+  version: 2.1.6
 
 build:
   number: 0
@@ -43,8 +43,7 @@ outputs:
       - gcc                                                          # [osx]
     run_exports:
       strong:
-        - libgfortran-ng >=4.9                                       # [linux]
-        - libgfortran-ng >=3.0                                       # [osx]
+        - libgfortran >=3.0  # [unix]
 {% else %}
   - name: m2w64-toolchain_{{ target_platform }}
     requirements:
