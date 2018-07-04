@@ -46,3 +46,9 @@ export CFLAGS="${CFLAGS} -m${ARCH}"
 export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
 export CFLAGS="${CFLAGS} -fPIC"
 export CXXFLAGS="${CXXFLAGS} -fPIC"
+export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
+if [[ ! -z "${BUILD_PREFIX}" && "${BUILD_PREFIX}" != "${PREFIX}" ]]
+then
+    export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:${BUILD_PREFIX}/lib/pkgconfig"
+fi
+env | sort
