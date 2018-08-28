@@ -1,2 +1,10 @@
+build_number_decrement:
+- '0'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+docker_image:
+- condaforge/linux-anvil
 target_platform:
 - linux-64
