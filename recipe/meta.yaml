@@ -1,6 +1,6 @@
 package:
   name: toolchain
-  version: 2.1.6
+  version: 2.2.0
 
 build:
   number: 0
