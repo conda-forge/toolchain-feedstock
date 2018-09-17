@@ -5,6 +5,7 @@ then
     # for Mac OSX
     export CC=clang
     export CXX=clang++
+    export FC=gfortran
     export MACOSX_VERSION_MIN="10.9"
     export MACOSX_DEPLOYMENT_TARGET="${MACOSX_VERSION_MIN}"
     export CMAKE_OSX_DEPLOYMENT_TARGET="${MACOSX_VERSION_MIN}"
@@ -21,6 +22,7 @@ then
     # for Linux
     export CC=gcc
     export CXX=g++
+    export FC=gfortran
     export CFLAGS="${CFLAGS}"
     # Boost wants to enable `float128` support on Linux by default.
     # However, we don't install `libquadmath` so it will fail to find
