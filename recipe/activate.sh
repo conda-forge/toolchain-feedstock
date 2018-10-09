@@ -15,6 +15,10 @@ then
     export CFLAGS="${CFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
     export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
     export CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
+    if [ ! -z "$CONDA_BUILD_SYSROOT" ]; then
+        export CFLAGS="${CFLAGS} -isysroot ${CONDA_BUILD_SYSROOT}"
+        export CXXFLAGS="${CXXFLAGS} -isysroot ${CONDA_BUILD_SYSROOT}"
+    fi
     export LDFLAGS="${LDFLAGS} -headerpad_max_install_names"
     export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
     export LDFLAGS="${LDFLAGS} -lc++"
