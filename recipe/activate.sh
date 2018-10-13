@@ -16,6 +16,8 @@ then
     export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
     export CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
     if [ ! -z "$CONDA_BUILD_SYSROOT" ]; then
+        export CMAKE_OSX_SYSROOT="${CONDA_BUILD_SYSROOT}"
+        export SDKROOT="${CONDA_BUILD_SYSROOT}"
         export CFLAGS="${CFLAGS} -isysroot ${CONDA_BUILD_SYSROOT}"
         export CXXFLAGS="${CXXFLAGS} -isysroot ${CONDA_BUILD_SYSROOT}"
     fi
