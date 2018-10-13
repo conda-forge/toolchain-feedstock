@@ -12,6 +12,8 @@ then
     unset MACOSX_VERSION_MIN
     unset MACOSX_DEPLOYMENT_TARGET
     unset CMAKE_OSX_DEPLOYMENT_TARGET
+    unset CMAKE_OSX_SYSROOT
+    unset SDKROOT
     unset CFLAGS
     unset CXXFLAGS
     unset LDFLAGS
