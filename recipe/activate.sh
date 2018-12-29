@@ -3,12 +3,17 @@
 if [ "$(uname)" == "Darwin" ]
 then
     # for Mac OSX
+    export AR=ar
     export CC=clang
     export CXX=clang++
     export FC=gfortran
     export F77=$FC
     export F90=$FC
     export F95=$FC
+    export LD=ld
+    export NM=nm
+    export RANLIB=ranlib
+    export STRIP=strip
     export MACOSX_VERSION_MIN="10.9"
     export MACOSX_DEPLOYMENT_TARGET="${MACOSX_VERSION_MIN}"
     export CMAKE_OSX_DEPLOYMENT_TARGET="${MACOSX_VERSION_MIN}"
@@ -29,12 +34,17 @@ then
 elif [ "$(uname)" == "Linux" ]
 then
     # for Linux
+    export AR=ar
     export CC=gcc
     export CXX=g++
     export FC=gfortran
     export F77=$FC
     export F90=$FC
     export F95=$FC
+    export LD=ld
+    export NM=nm
+    export RANLIB=ranlib
+    export STRIP=strip
     export CFLAGS="${CFLAGS}"
     # Boost wants to enable `float128` support on Linux by default.
     # However, we don't install `libquadmath` so it will fail to find
