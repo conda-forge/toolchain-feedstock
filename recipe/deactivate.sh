@@ -35,6 +35,8 @@ then
     unset F95
     unset LD
     unset NM
+    unset OBJCOPY
+    unset OBJDUMP
     unset RANLIB
     unset STRIP
     unset CFLAGS

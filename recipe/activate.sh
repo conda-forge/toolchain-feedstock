@@ -43,6 +43,8 @@ then
     export F95=$FC
     export LD=ld
     export NM=nm
+    export OBJCOPY=objcopy
+    export OBJDUMP=objdump
     export RANLIB=ranlib
     export STRIP=strip
     export CFLAGS="${CFLAGS}"
