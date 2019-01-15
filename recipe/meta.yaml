@@ -3,7 +3,7 @@ package:
   version: 2.4.0
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: toolchain
@@ -43,7 +43,7 @@ outputs:
       - gcc                                                          # [osx]
     run_exports:
       strong:
-        - libgfortran >=3.0  # [unix]
+        - libgfortran >=3.0,<4.0.1  # [unix]
 {% else %}
   - name: m2w64-toolchain_{{ target_platform }}
     requirements:
