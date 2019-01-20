@@ -43,7 +43,7 @@ outputs:
       - gcc                                                          # [osx]
     run_exports:
       strong:
-        - libgfortran >=3.0,<4.0.1  # [unix]
+        - libgfortran >=3.0,<4.0.0.a0  # [unix]
 {% else %}
   - name: m2w64-toolchain_{{ target_platform }}
     requirements:
