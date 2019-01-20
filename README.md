@@ -1,7 +1,9 @@
+<!--
+# -*- mode: jinja -*-
+-->
+
 About toolchain
 ===============
-
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
 
 Home: https://github.com/conda-forge/toolchain-feedstock
 
@@ -26,9 +28,9 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain-green.svg)](https://anaconda.org/conda-forge/toolchain) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain.svg)](https://anaconda.org/conda-forge/toolchain) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain.svg)](https://anaconda.org/conda-forge/toolchain) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain.svg)](https://anaconda.org/conda-forge/toolchain) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_c_linux--64-green.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_c_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_c_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_c_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_cxx_linux--64-green.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_cxx_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_cxx_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_cxx_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_fort_linux--64-green.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_fort_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_fort_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_fort_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_c_osx--64-green.svg)](https://anaconda.org/conda-forge/toolchain_c_osx-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_c_osx-64.svg)](https://anaconda.org/conda-forge/toolchain_c_osx-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_c_osx-64.svg)](https://anaconda.org/conda-forge/toolchain_c_osx-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_c_osx-64.svg)](https://anaconda.org/conda-forge/toolchain_c_osx-64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_cxx_osx--64-green.svg)](https://anaconda.org/conda-forge/toolchain_cxx_osx-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_cxx_osx-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_osx-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_cxx_osx-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_osx-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_cxx_osx-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_osx-64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_fort_osx--64-green.svg)](https://anaconda.org/conda-forge/toolchain_fort_osx-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_fort_osx-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_osx-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_fort_osx-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_osx-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_fort_osx-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_osx-64) |
 
 Installing toolchain
 ====================
@@ -39,10 +41,10 @@ Installing `toolchain` from the `conda-forge` channel can be achieved by adding 
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `toolchain, toolchain_c_linux-64, toolchain_cxx_linux-64, toolchain_fort_linux-64` can be installed with:
+Once the `conda-forge` channel has been enabled, `toolchain, toolchain_c_osx-64, toolchain_cxx_osx-64, toolchain_fort_osx-64` can be installed with:
 
 ```
-conda install toolchain toolchain_c_linux-64 toolchain_cxx_linux-64 toolchain_fort_linux-64
+conda install toolchain toolchain_c_osx-64 toolchain_cxx_osx-64 toolchain_fort_osx-64
 ```
 
 It is possible to list all of the versions of `toolchain` available on your platform with:
@@ -54,6 +56,8 @@ conda search toolchain --channel conda-forge
 
 About conda-forge
 =================
+
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
