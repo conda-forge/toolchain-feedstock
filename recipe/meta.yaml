@@ -26,31 +26,35 @@ outputs:
   - name: toolchain_c_{{ target_platform }}
     requirements:
       - {{ pin_subpackage('toolchain', exact=True) }}
-    run_exports:                                                     # [linux]
-      strong:                                                        # [linux]
-        - libgcc-ng >=4.9                                            # [linux]
+    build:
+      run_exports:                                                     # [linux]
+        strong:                                                        # [linux]
+          - libgcc-ng >=4.9                                            # [linux]
 
   - name: toolchain_cxx_{{ target_platform }}
     requirements:
       - {{ pin_subpackage('toolchain', exact=True) }}
-    run_exports:                                                     # [linux]
-      strong:                                                        # [linux]
-        - libstdcxx-ng >=4.9                                         # [linux]
+    build:
+      run_exports:                                                     # [linux]
+        strong:                                                        # [linux]
+          - libstdcxx-ng >=4.9                                         # [linux]
 
   - name: toolchain_fort_{{ target_platform }}
     requirements:
       - {{ pin_subpackage('toolchain', exact=True) }}
       - gcc                                                          # [osx]
-    run_exports:
-      strong:
-        - libgfortran >=3.0  # [unix]
+    build:
+      run_exports:
+        strong:
+          - libgfortran >=3.0  # [unix]
 {% else %}
   - name: m2w64-toolchain_{{ target_platform }}
     requirements:
       - m2w64-toolchain
-    run_exports:
-      strong:
-        - m2w64-gcc-libs
+    build:
+      run_exports:
+        strong:
+          - m2w64-gcc-libs
 {% endif %}
 
 about:
