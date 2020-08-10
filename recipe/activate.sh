@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$(uname)" == "Darwin" ]
+if [ "$(uname)" = "Darwin" ]
 then
     # for Mac OSX
     export AR=ar
@@ -31,7 +31,7 @@ then
     export LDFLAGS="${LDFLAGS} -lc++"
     export LDFLAGS="${LDFLAGS} -Wl,-rpath,$PREFIX/lib" 
     export LINKFLAGS="${LDFLAGS}"
-elif [ "$(uname)" == "Linux" ]
+elif [ "$(uname)" = "Linux" ]
 then
     # for Linux
     export AR=ar
