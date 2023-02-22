@@ -14,10 +14,12 @@ outputs:
       strong:
         - m2w64-gcc-libs
         - m2w64-gcc-libs-core
+    test:
+      - echo hello
 
 about:
   home: https://github.com/conda-forge/toolchain-feedstock
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   summary: A meta-package to enable the right toolchain.
 
 extra:
