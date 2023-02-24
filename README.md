@@ -1,34 +1,52 @@
 About toolchain
 ===============
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
-
 Home: https://github.com/conda-forge/toolchain-feedstock
 
-Package license: BSD 3-Clause
+Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/toolchain-feedstock/blob/main/LICENSE.txt)
 
 Summary: A meta-package to enable the right toolchain.
-
-
 
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/toolchain-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/toolchain-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/toolchain-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/toolchain-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/toolchain-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/toolchain-feedstock/branch/master)
+
+<table>
+    
+  <tr>
+    <td>Azure</td>
+    <td>
+      <details>
+        <summary>
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4656&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/toolchain-feedstock?branchName=main">
+          </a>
+        </summary>
+        <table>
+          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
+          <tbody><tr>
+              <td>win_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4656&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/toolchain-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+    </td>
+  </tr>
+</table>
 
 Current release info
 ====================
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain-green.svg)](https://anaconda.org/conda-forge/toolchain) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain.svg)](https://anaconda.org/conda-forge/toolchain) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain.svg)](https://anaconda.org/conda-forge/toolchain) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain.svg)](https://anaconda.org/conda-forge/toolchain) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_c_linux--64-green.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_c_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_c_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_c_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_c_linux-64) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_cxx_linux--64-green.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_cxx_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_cxx_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_cxx_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_cxx_linux-64) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-toolchain_fort_linux--64-green.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/toolchain_fort_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/toolchain_fort_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/toolchain_fort_linux-64.svg)](https://anaconda.org/conda-forge/toolchain_fort_linux-64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-m2w64--toolchain_win--64-green.svg)](https://anaconda.org/conda-forge/m2w64-toolchain_win-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/m2w64-toolchain_win-64.svg)](https://anaconda.org/conda-forge/m2w64-toolchain_win-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/m2w64-toolchain_win-64.svg)](https://anaconda.org/conda-forge/m2w64-toolchain_win-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/m2w64-toolchain_win-64.svg)](https://anaconda.org/conda-forge/m2w64-toolchain_win-64) |
 
 Installing toolchain
 ====================
@@ -37,23 +55,52 @@ Installing `toolchain` from the `conda-forge` channel can be achieved by adding 
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `toolchain, toolchain_c_linux-64, toolchain_cxx_linux-64, toolchain_fort_linux-64` can be installed with:
+Once the `conda-forge` channel has been enabled, `m2w64-toolchain_win-64` can be installed with `conda`:
 
 ```
-conda install toolchain toolchain_c_linux-64 toolchain_cxx_linux-64 toolchain_fort_linux-64
+conda install m2w64-toolchain_win-64
 ```
 
-It is possible to list all of the versions of `toolchain` available on your platform with:
+or with `mamba`:
 
 ```
-conda search toolchain --channel conda-forge
+mamba install m2w64-toolchain_win-64
+```
+
+It is possible to list all of the versions of `m2w64-toolchain_win-64` available on your platform with `conda`:
+
+```
+conda search m2w64-toolchain_win-64 --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search m2w64-toolchain_win-64 --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search m2w64-toolchain_win-64 --channel conda-forge
+
+# List packages depending on `m2w64-toolchain_win-64`:
+mamba repoquery whoneeds m2w64-toolchain_win-64 --channel conda-forge
+
+# List dependencies of `m2w64-toolchain_win-64`:
+mamba repoquery depends m2w64-toolchain_win-64 --channel conda-forge
 ```
 
 
 About conda-forge
 =================
+
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -63,10 +110,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.org/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
@@ -105,9 +154,9 @@ build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string).
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string)
    back to 0.
 
 Feedstock Maintainers

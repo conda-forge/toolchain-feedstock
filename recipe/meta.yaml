@@ -1,61 +1,26 @@
 package:
   name: toolchain
-  version: 2.4.0
+  version: 2.5.0
 
 build:
   number: 0
+  skip: True  # [not win]
 
 outputs:
-  - name: toolchain
-    # for windows, this is a placebo package.  The default conda-build activation stuff is all we use.
-    # we just don't want people to have to put selectors on their toolchain dep.
-    script: install-toolchain.sh      # [unix]
-    test:
-      commands:
-        # Verify the scripts are in-place.
-        {% for state in ["activate", "deactivate"] %}
-        - test -f "${PREFIX}/etc/conda/{{ state }}.d/toolchain_{{ state }}.sh"                        # [unix]
-        {% endfor %}
-        - echo "I'm on windows, and there's nothing to do here."                                      # [win]
-{% if unix %}
-        - source ${PREFIX}/etc/conda/activate.d/toolchain_activate.sh
-        - if [ -z ${CC+x} ]; then echo "CC is unset after activation" && exit 1; else echo "CC is set to '$CC'"; fi
-        - source ${PREFIX}/etc/conda/deactivate.d/toolchain_deactivate.sh
-        - if [ -z ${CC+x} ]; then echo "CC is unset after deactivation "; else echo "CC is set to '$CC' after deactivation" && exit 1; fi
-
-  - name: toolchain_c_{{ target_platform }}
-    requirements:
-      - {{ pin_subpackage('toolchain', exact=True) }}
-    run_exports:                                                     # [linux]
-      strong:                                                        # [linux]
-        - libgcc-ng >=4.9                                            # [linux]
-
-  - name: toolchain_cxx_{{ target_platform }}
-    requirements:
-      - {{ pin_subpackage('toolchain', exact=True) }}
-    run_exports:                                                     # [linux]
-      strong:                                                        # [linux]
-        - libstdcxx-ng >=4.9                                         # [linux]
-
-  - name: toolchain_fort_{{ target_platform }}
-    requirements:
-      - {{ pin_subpackage('toolchain', exact=True) }}
-      - gcc                                                          # [osx]
-    run_exports:
-      strong:
-        - libgfortran >=3.0  # [unix]
-{% else %}
   - name: m2w64-toolchain_{{ target_platform }}
     requirements:
       - m2w64-toolchain
     run_exports:
       strong:
         - m2w64-gcc-libs
-{% endif %}
+        - m2w64-gcc-libs-core
+    test:
+      commands:
+        - echo hello
 
 about:
   home: https://github.com/conda-forge/toolchain-feedstock
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   summary: A meta-package to enable the right toolchain.
 
 extra:
